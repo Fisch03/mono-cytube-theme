@@ -120,8 +120,8 @@ body::before {
 }
 
 #userlist {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
     background-image: url("https://fisch03.xyz/mono-cytube-theme/assets/checkered.png") !important;
     background-repeat: repeat;
     background-size: 20px;
