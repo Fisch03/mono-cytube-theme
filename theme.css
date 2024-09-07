@@ -21,17 +21,34 @@ body::before {
     transform: rotate(-30deg);
 }
 
-.navbar{
-    background-color: #EAE7E0;
+.navbar {
+    text-transform: lowercase;
+    font-family: "Shantell Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BNCE" 15,
+      "INFM" 35,
+      "SPAC" 0;
+
+    color: #444340;
+    text-shadow: none;
+    background-image: url("https://fisch03.xyz/mono-cytube-theme/assets/checkered.png") !important;
+    background-repeat: repeat;
+    background-size: 20px;
+    background-position: center;
     border: 1px solid #000000;
     border-top: none;
+    border-right: none;
     margin-left: 10px;
-    margin-right: 10px;
-    box-shadow: 5px 5px #D076CC;
-    border-radius: 0 0 20px 20px;
-    background-image: unset !important;
+    box-shadow: 5px 5px #D076CC, 6px 6px #000000;
+    border-radius: 0 0 0 30px;
 }
 
+.navbar-brand {
+    color:inherit !important;
+}
 
 .navbar-brand {
   text-indent: -9999px;
@@ -39,15 +56,76 @@ body::before {
 }
 
 .navbar-brand::after {
-  content: "MonoTube!";
-  text-indent: 0;
-  display: block;
-  line-height: initial;
+    content: "MonoTube!";
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+    transform: translateY(-3px);
 }
 
+#motdrow {
+    margin-top: 10px;
+}
+
+#motdwrap {
+    font-family: "Shantell Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BNCE" 15,
+      "INFM" 35,
+      "SPAC" 0;
+
+    color: #444340;
+    text-shadow: none;
+    background-image: url("https://fisch03.xyz/mono-cytube-theme/assets/checkered.png") !important;
+    background-repeat: repeat;
+    background-size: 20px;
+    background-position: center;
+    border: 1px solid #000000;
+    box-shadow: 5px 5px #F2B441, 6px 6px #000000;
+    border-radius: 30px;
+}
+
+#videowrap-header, #chatheader {
+    border-radius: 20px 20px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+.embed-responsive, #chatline {
+    border-radius: 0 0 20px 20px;
+    border: 1px solid #000000;
+    border-top: none;
+}
+#chatheader, #messagebuffer, #chatline {
+    box-shadow: 5px 5px #9294E3, 6px 6px #000000;
+}
+#videowrap-header, .embed-responsive {
+    box-shadow: 5px 5px #9CCCA7, 6px 6px #000000;
+}
 
 #chatheader, #videowrap-header, #userlist, #messagebuffer, #plmeta {
     background-color: #ffffff;
+}
+
+#userlist, #messagebuffer, #chatline, #videowrap-header, #chatheader {
+    background-color: #EEEDE9 !important;
+}
+
+input[type="text"] {
+    color: #000000 !important;
+    background-color: #EEEDE9 !important;
+}
+
+#userlist {
+    padding-left: 10px;
+    padding-right: 10px;
+    background-image: url("https://fisch03.xyz/mono-cytube-theme/assets/checkered.png") !important;
+    background-repeat: repeat;
+    background-size: 20px;
+    background-position: center;
 }
 
 footer {
@@ -86,7 +164,7 @@ footer {
 #chatheader, #videowrap-header {
     border: 1px solid #cccccc;
     border-bottom-width: 0;
-    border-radius: 5px;
+    /*! border-radius: 5px; */
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 }
@@ -98,10 +176,6 @@ footer {
 
 .queue_entry.queue_active {
     background-color: #d9edf7;
-}
-
-.navbar-inverse .navbar-text-nofloat {
-    color: #9d9d9d;
 }
 
 .queue_entry.queue_active {
