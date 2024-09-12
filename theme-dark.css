@@ -184,10 +184,23 @@ footer {
     background-color: #F2B441;
 }
 
+.btn-default {
+    color: var(--text-fg);
+    background-color: var(--inner-bg);
+}
 .btn-default:hover {
     color: var(--outer-bg);
 }
 
-#queue, #plmeta, .qe_title {
+#queue, #plmeta, .qe_title, #userlist {
     color: var(--text-fg);
+}
+
+.modal-content {
+    color: var(--text-fg);
+    background-color: var(--outer-bg) !important;
+}
+
+.emote-preview-container {
+    background-color: var(--inner-bg) !important;
 }
