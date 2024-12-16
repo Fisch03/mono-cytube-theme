@@ -1,17 +1,61 @@
-const video = document.querySelector('#videowrap > div:last-child')
-console.log(video)
+const queueDiv = document.querySelector('#queue');
+const currentTitle = document.querySelector('#currenttitle');
 
 const owncast_embed_src = "https://mono.erodozer.moe/embed/video/"
-const owncast_embed = document.createElement('iframe')
-owncast_embed.src = owncast_embed_src
-owncast_embed.width = "100%"
-owncast_embed.referrerPolicy = 'origin'
-owncast_embed.frameBorder = 0
-owncast_embed.allowFullscreen = true
+function makeEmbed() {
+    if (document.getElementById('owncast_embed') !== null) {
+        return null
+    }
 
-video.replaceWith(owncast_embed)
+    const embed = document.createElement('iframe')
+    embed.id = 'owncast_embed'
+    embed.src = owncast_embed_src
+    embed.width = "100%"
+    embed.referrerPolicy = 'origin'
+    embed.frameBorder = 0
+    embed.allowFullscreen = true
+    document.getElementById('videowrap').appendChild(embed)
+    return embed
+}
 
-const actual_width = owncast_embed.offsetWidth
-console.log(actual_width)
-owncast_embed.height = `${actual_width * 9 / 16}px`
+function updateContent() {
+    if (queueDiv.children.length === 0) {
+        const video = document.querySelector('#videowrap > div:last-child');
+        if (video === null) {
+            return
+        }
 
+        const embed = makeEmbed();
+        if (embed === null) {
+            return
+        }
+
+        video.style.display = 'none';
+        currentTitle.innerText = 'Currently Playing: MonoCast';
+        updateSizing();
+    } else {
+        const embed = document.getElementById('owncast_embed');
+        if (embed !== null) {
+            embed.remove();
+        }
+
+        const video = document.querySelector('#videowrap > div:last-child');
+        video.style.display = 'block';
+    }
+
+}
+
+function updateSizing() {
+    const existingEmbed = document.getElementById('owncast_embed');
+    if (existingEmbed !== null) {
+        const actual_width = existingEmbed.offsetWidth;
+        existingEmbed.height = `${actual_width * 9 / 16}px`;
+    }
+}
+
+const resizeObserver = new ResizeObserver(updateSizing);
+resizeObserver.observe(document.getElementById('videowrap'));
+
+const queueObserver = new MutationObserver(() => setTimeout(updateContent, 1000));
+queueObserver.observe(queueDiv, {childList: true});
+updateContent();
